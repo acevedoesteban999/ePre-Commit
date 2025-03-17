@@ -16,7 +16,8 @@ REPLACEMENTS = {
 
 
 SDK_CONFIG = 'sdkconfig'
-
+README = "README.md"
+PRE_README = ".epre-commit/PRE-README.md"
 
 #PROTECTES BRANCHES
 try:
@@ -32,7 +33,7 @@ if branch in PROTECTED_BRANCHES:
 
 #README
 try:
-    with open(".PRE-README.md", "r") as pre_readme_file:
+    with open(PRE_README, "r") as pre_readme_file:
         content = pre_readme_file.read()
 
     
@@ -60,7 +61,7 @@ try:
         
         content = re.sub(r'\{\{' + re.escape(key) + r'\}\}', value, content)
     
-    with open("README.md", "w") as readme_file:
+    with open(README, "w") as readme_file:
         readme_file.write(content)
 
     subprocess.run(["git", "add", "README.md"], check=True)
