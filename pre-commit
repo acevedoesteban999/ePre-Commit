@@ -1,0 +1,3 @@
+#!/bin/sh
+exec python "E:\Esteban\Programacion\Esp32\eMonitor\.pre-commit.py"
+
